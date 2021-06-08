@@ -1,7 +1,5 @@
 package jpabasic.exhellojpa;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -24,16 +22,11 @@ public class ExhellojpaApplication {
 		tx.begin();
 
 		try {
-			
-			Member findMember = em.find(Member.class, 1L);
-			List<Member> result = em.createQuery("select m from Member m", Member.class)
-									.setFirstResult(1)
-									.setMaxResults(100)
-									.getResultList();
-			
-			for (Member member : result) {
-				System.out.println("member = " + member.getName());
-			}
+
+			//영속
+
+			Member member = em.find(Member.class, 150L);
+			member.setName("ZZZZZ");
 
 			tx.commit();
 		} catch (Exception e) {
