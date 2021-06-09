@@ -1,4 +1,4 @@
-package jpabasic.exhellojpa;
+package jpabook;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -7,8 +7,6 @@ import javax.persistence.Persistence;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import jpabasic.exhellojpa.domain.Member;
 
 @SpringBootApplication
 public class ExhellojpaApplication {
@@ -22,11 +20,6 @@ public class ExhellojpaApplication {
 		tx.begin();
 
 		try {
-
-			//영속
-
-			Member member = em.find(Member.class, 150L);
-			member.setName("ZZZZZ");
 
 			tx.commit();
 		} catch (Exception e) {
