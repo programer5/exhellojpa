@@ -8,6 +8,8 @@ import javax.persistence.Persistence;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import jpabook.jpashop.domain.Book;
+
 @SpringBootApplication
 public class ExhellojpaApplication {
 
@@ -20,6 +22,12 @@ public class ExhellojpaApplication {
 		tx.begin();
 
 		try {
+
+			Book book = new Book();
+			book.setName("JPA");
+			book.setAuthor("김영한");
+
+			em.persist(book);
 
 			tx.commit();
 		} catch (Exception e) {
